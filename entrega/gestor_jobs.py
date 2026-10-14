@@ -1,9 +1,9 @@
 """Gestor de Jobs de Kubernetes para la practica 202630.
 
-ESQUELETO: el andamiaje del menu y del cliente de Kubernetes ya esta puesto.
-Lo que falta esta marcado con TODO y con `...` en los campos a completar. El
-foco de la practica es Kubernetes, no Python: no tienes que inventar la
-estructura del programa, sino entender que significa cada campo del Job.
+Version completa: el menu crea Jobs de Kubernetes con el cliente oficial de Python,
+consulta su estado y sus logs, y limpia los Jobs terminados. Cada campo del Job
+(imagen, argumentos, requests/limits, restart_policy, backoff_limit) esta explicado
+en el README.
 
 El programa es un menu interactivo:
 
