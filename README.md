@@ -162,15 +162,15 @@ El menú muestra `Fallido (OOMKilled)` y `kubectl get pods` muestra el mismo Pod
 
 Menú del gestor (opción 2):
 
-![Menú mostrando Fallido (OOMKilled)](docs/capturas/oomkilled-menu.jpg)
+![Menú mostrando Fallido (OOMKilled)](docs/capturas/oomkilled-menu.jpeg)
 
 El mismo Job visto desde el clúster, contrastado con el menú:
 
-![kubectl get pods mostrando OOMKilled](docs/capturas/oomkilled-kubectl.jpg)
+![kubectl get pods mostrando OOMKilled](docs/capturas/oomkilled-kubectl.jpeg)
 
 Detalle del Pod:
 
-![kubectl describe pod con Reason OOMKilled y Exit Code 137](docs/capturas/oomkilled-describe.jpg)
+![kubectl describe pod con Reason OOMKilled y Exit Code 137](docs/capturas/oomkilled-describe.jpeg)
 
 ### 6.4 Limpieza
 
