@@ -57,11 +57,48 @@ def matriz(n):
     return {"n": n, "traza": round(sum(c[i][i] for i in range(n)), 6)}
 
 
+# Cantidad de primos <= N para valores conocidos, usada para verificar el
+# resultado de la criba.
+PRIMOS_CONOCIDOS = {
+    10: 4,
+    100: 25,
+    1000: 168,
+    10000: 1229,
+    100000: 9592,
+    1000000: 78498,
+    10000000: 664579,
+    50000000: 3001134,
+}
+
+
+def primos(n):
+    # Criba de Eratostenes: una tabla de N+1 bytes (1 = posible primo). Usa
+    # CPU y memoria a la vez: la memoria crece de forma lineal con N.
+    print(f"Calculando los primos hasta {n} con la criba de Eratostenes...")
+    if n < 2:
+        return {"n": n, "cantidad": 0, "ultimo": None}
+
+    criba = bytearray([1]) * (n + 1)
+    criba[0] = criba[1] = 0
+    for i in range(2, int(n ** 0.5) + 1):
+        if criba[i]:
+            # Tacha todos los multiplos de i, empezando en i*i.
+            criba[i * i::i] = bytearray(len(range(i * i, n + 1, i)))
+
+    cantidad = criba.count(1)
+    ultimo = criba.rfind(1)
+    # Verificacion: nunca reportar exito sin comprobar el resultado.
+    if n in PRIMOS_CONOCIDOS:
+        assert cantidad == PRIMOS_CONOCIDOS[n], "la criba dio un resultado incorrecto"
+    return {"n": n, "cantidad": cantidad, "ultimo": ultimo}
+
+
 TAREAS = {
     "hola": hola,
     "ordenar": ordenar,
     "fib": fib,
     "matriz": matriz,
+    "primos": primos,
 }
 
 
